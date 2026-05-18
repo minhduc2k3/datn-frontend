@@ -1,10 +1,9 @@
 import NextBundleAnalyzer from '@next/bundle-analyzer'
 import createNextIntlPlugin from 'next-intl/plugin'
-// Bỏ dòng import type { NextConfig } đi hoặc cứ để đó cũng được
 
-const withNextIntl = createNextIntlPlugin()
+// Đây là dòng quan trọng: báo cho plugin biết file cấu hình nằm ở đâu
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
-// Thay đổi chỗ này từ NextConfig thành any
 const nextConfig: any = {
   typescript: {
     ignoreBuildErrors: true,
