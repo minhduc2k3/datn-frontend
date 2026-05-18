@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import dishApiRequest from '@/apiRequests/dish'
 import envConfig, { locales } from '@/config'
 import { generateSlugUrl } from '@/lib/utils'
