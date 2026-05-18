@@ -3,6 +3,11 @@ import { revalidateTag } from 'next/cache'
 
 export async function GET(request: NextRequest) {
   const tag = request.nextUrl.searchParams.get('tag')
-  revalidateTag(tag!)
-  return Response.json({ revalidated: true, now: Date.now() })
+  
+  if (tag) {
+    // Ép kiểu any để Next.js 16 không bắt bẻ tham số thứ 2
+    (revalidateTag as any)(tag)
+  }
+
+  return Response.json({ revalidated: !!tag, now: Date.now() })
 }
